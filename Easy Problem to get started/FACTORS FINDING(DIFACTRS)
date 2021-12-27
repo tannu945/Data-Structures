@@ -1,0 +1,13 @@
+# cook your dish here
+n = int(input())
+a = []
+i = 1
+count = 0
+if n >= 1 and n <= 1000000:
+    while i <= n:
+        if n%i == 0:
+            count = count+1
+            a.append(i)
+        i = i+1
+    print(count)
+    print(*a)
