@@ -1,0 +1,25 @@
+n = int(input())
+for _ in range(n):
+     string = input()
+     d1 = {}
+     d2 = {}
+     length = len(string)
+     e = length-1
+     i = 0
+     while i<e:
+          l = string[i]
+          r = string[e]
+          if l in d1:
+               d1[l] = d1[l]+1
+          else:
+               d1[l] = 1
+          if r in d2:
+               d2[r] = d2[r] + 1 
+          else:
+               d2[r] = 1
+          i+=1
+          e-=1
+     if d1 == d2:
+          print("YES")
+     else:
+          print("NO")
