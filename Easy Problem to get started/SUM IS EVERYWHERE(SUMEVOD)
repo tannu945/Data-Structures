@@ -1,0 +1,11 @@
+# cook your dish here
+n = int(input())
+seven=0
+sodd=0
+for i in range(1, 2*n+1):
+    if i%2==0:
+        seven+=i
+    else:
+        sodd+=i
+s=[sodd, seven]
+print(*s)
