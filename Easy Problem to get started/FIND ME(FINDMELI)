@@ -1,0 +1,7 @@
+# cook your dish here
+a, b = [int(x) for x in input().split()]
+num = [int(x) for x in input().split()]
+if b in num:
+    print("1")
+else:
+    print("-1")
