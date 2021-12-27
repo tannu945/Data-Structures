@@ -1,0 +1,4 @@
+# cook your dish here
+a, b, c, d = [int(x) for x in input().split()]
+if a >= 1 and b >= 1 and c <= 1000 and d <= 1000:
+    print((a * c) + (b * d))
