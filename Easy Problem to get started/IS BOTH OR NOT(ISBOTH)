@@ -1,0 +1,11 @@
+# cook your dish here
+n = int(input())
+if n >= 1 and n <= 1000:
+    if n%5 == 0 and n%11 != 0:
+        print("ONE")
+    elif n%5 != 0 and n%11 == 0:
+        print("ONE")
+    elif n%5 == 0 and n%11 == 0:
+        print("BOTH")
+    elif n%5 != 0 and n%11 != 0:
+        print("NONE")
