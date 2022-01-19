@@ -1,0 +1,10 @@
+def delete(arrlist, x):
+  arrlist.remove(X)
+  
+delete([1,2,3], 3)
+
+
+
+
+
+Time complexity 
