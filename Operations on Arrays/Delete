@@ -1,5 +1,5 @@
 def delete(arrlist, x):
-  arrlist.remove(X)
+  arrlist.remove(x)
   
 delete([1,2,3], 3)
 
@@ -7,4 +7,11 @@ delete([1,2,3], 3)
 
 
 
-Time complexity 
+Time complexity for static size array:
+  General scenario = O(n) or Θ(n)
+  Delete at the end = Θ(n)
+  Insert at the beginning = Θ(n)
+
+Time complexity for dynamic size array:
+  Every delete for first n elements = O(1)
+  For (n+1) delete at the end = O(1) or Θ(1)
