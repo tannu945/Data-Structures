@@ -1,0 +1,14 @@
+def insert(arrlist, x, i):
+  arrlist[i].append(x)
+  
+insert([], 12, 0)
+
+
+Time complexity for static size array:
+  General scenario = O(n)
+  Insert at the end = O(1)
+  Insert at the beginning = Θ(n)
+
+Time complexity for dynamic size array:
+  Every insert for first n elements = O(1)
+  For (n+1) insert at the end = O(1) or Θ(1)
