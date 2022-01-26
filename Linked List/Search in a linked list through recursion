@@ -1,0 +1,24 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headvalue:
+    def __init__(self):
+        self.val = None
+
+    def search_recursion(self, object, val):
+        if object.data == val:
+            return "Found"
+        if object.next == None:
+            return "Not Found"
+        else:
+            return self.search_recursion(object.next, val)
+
+list1 = headvalue()
+list1.val = linked("Mon")
+e2 = linked("Tue")
+e3 = linked("Wed")
+list1.val.next = e2
+e2.next = e3
+print(list1.search_recursion(list1.val, "Mon"))
+
