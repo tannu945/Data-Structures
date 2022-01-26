@@ -1,0 +1,20 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headvalue:
+    def __init__(self):
+        self.val = None
+
+    def traverse_recursion(self, object):
+        print(object.data)
+        if object.next == None:
+            return
+        return self.traverse_recursion(object.next)
+list1 = headvalue()
+list1.val = linked("Mon")
+e2 = linked("Tue")
+e3 = linked("Wed")
+list1.val.next = e2
+e2.next = e3
+list1.traverse_recursion(list1.val)
