@@ -6,20 +6,32 @@ class headvalue:
     def __init__(self):
         self.val = None
 
-    def delete_at_begin(self, object):
-        self.val = linked(object.data)
-        self.val.next = object.next
+    def delete_at_begin(self):
+        if self.val is not None:
+            if self.val.next == None:
+                self.val = None
+                return None
+        if self.val is None:
+            return None
+        else:
+            headval = self.val.next
+            self.val = headval
+
 
     def traverse(self):
-        i = self.val
-        while i is not None:
-            print(i.data)
-            i=i.next
+        if self.val is None:
+            print("Linked list is empty")
+        else:
+            i = self.val
+            while i is not None:
+                print(i.data)
+                i=i.next
+
 list1 = headvalue()
 list1.val = linked("Mon")
 e2 = linked("Tue")
 e3 = linked("Wed")
 list1.val.next = e2
 e2.next = e3
-list1.delete_at_begin(e2)
+list1.delete_at_begin()
 list1.traverse()
