@@ -1,0 +1,9 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+list1 = linked("Mon")
+e2 = linked("Tue")
+e3 = linked("Wed")
+list1.next = e2
+e2.next = e3
