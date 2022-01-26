@@ -7,12 +7,9 @@ class headvalue:
         self.val = None
 
     def insert_at_begin(self, object1, val):
-        object = object1.data
-        add= object1.next
-        self.val=linked(val)
-        self.val.next = object1
-        object1.data=object
-        object1.next=add
+        newnode=linked(val)
+        newnode.next = self.val
+        self.val = newnode
 
     def traverse(self):
         i = self.val
