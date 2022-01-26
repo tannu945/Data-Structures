@@ -1,0 +1,23 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headvalue:
+    def __init__(self):
+        self.val = None
+
+    def search(self, val):
+        object = self.val
+        while object is not None:
+            if object.data == val:
+                return "found"
+            object = object.next
+        return -1
+list1 = headvalue()
+list1.val = linked("Mon")
+e2 = linked("Tue")
+e3 = linked("Wed")
+list1.val.next = e2
+e2.next = e3
+print(list1.search("Wed"))
+
