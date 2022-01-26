@@ -1,0 +1,24 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headvalue:
+    def __init__(self):
+        self.val = None
+
+    def delete_at_end(self, object):
+        object.next=None
+
+    def traverse(self):
+        i = self.val
+        while i is not None:
+            print(i.data)
+            i=i.next
+list1 = headvalue()
+list1.val = linked("Mon")
+e2 = linked("Tue")
+e3 = linked("Wed")
+list1.val.next = e2
+e2.next = e3
+list1.delete_at_end(e2)
+list1.traverse()
