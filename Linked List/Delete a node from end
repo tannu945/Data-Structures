@@ -6,8 +6,19 @@ class headvalue:
     def __init__(self):
         self.val = None
 
-    def delete_at_end(self, object):
-        object.next=None
+    def delete_at_end(self):
+        if self.val.next is None:
+            self.val = None
+            return None
+        if self.val is None:
+            return None
+        else:
+            i = self.val
+            while i is not None:
+                if i.next.next==None:
+                    i.next = None
+                    return self.val
+                i = i.next
 
     def traverse(self):
         i = self.val
@@ -20,5 +31,5 @@ e2 = linked("Tue")
 e3 = linked("Wed")
 list1.val.next = e2
 e2.next = e3
-list1.delete_at_end(e2)
+list1.delete_at_end()
 list1.traverse()
