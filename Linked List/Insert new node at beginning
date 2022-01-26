@@ -1,0 +1,29 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headvalue:
+    def __init__(self):
+        self.val = None
+
+    def insert_at_begin(self, object1, val):
+        object = object1.data
+        add= object1.next
+        self.val=linked(val)
+        self.val.next = object1
+        object1.data=object
+        object1.next=add
+
+    def traverse(self):
+        i = self.val
+        while i is not None:
+            print(i.data)
+            i=i.next
+list1 = headvalue()
+list1.val = linked("Mon")
+e2 = linked("Tue")
+e3 = linked("Wed")
+list1.val.next = e2
+e2.next = e3
+list1.insert_at_begin(list1.val, "Sun")
+list1.traverse()
