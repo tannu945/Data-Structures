@@ -1,0 +1,34 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headval:
+    def __init__(self):
+        self.val = None
+    def remove_duplicates(self):
+        cur = self.val
+        while cur is not None and cur.next is not None:
+            if cur.data == cur.next.data:
+                cur.next = cur.next.next
+            else:
+                cur = cur.next
+
+    def traverse(self):
+        cur = self.val
+        while cur is not None:
+            print(cur.data)
+            cur = cur.next
+
+list = headval()
+list.val = linked(1)
+e1 = linked(2)
+e2 = linked(2)
+e3 = linked(4)
+e4 = linked(5)
+list.val.next = e1
+e1.next=e2
+e2.next=e3
+e3.next=e4
+list.remove_duplicates()
+list.traverse()
+
