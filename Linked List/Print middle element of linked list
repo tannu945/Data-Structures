@@ -8,14 +8,14 @@ class headvalue:
 
     def print_middle_element(self):
         cur = self.val
-        curt = self.val
         i = 1
         pos = 0
-        while curt is not None:
+        while cur is not None:
             pos += 1
-            curt = curt.next
+            cur = curt.next
         if cur is None:
                 return self.val
+        cur = self.val
         while (cur is not None) and (i <= pos//2):
             i += 1
             cur = cur.next
