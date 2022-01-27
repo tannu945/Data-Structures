@@ -1,0 +1,36 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headval:
+    def __init__(self):
+        self.val = None
+    def reverse_recursion(self, object):
+        if object == None:
+            return None
+        if object.next == None:
+            return object
+        rest_head = self.reverse_recursion(object.next)
+        rest_tail = object.next
+        rest_tail.next = object
+        object.next = None
+        return rest_head
+
+    def traverse(self):
+        cur = self.val
+        while cur is not None:
+            print(cur.data)
+            cur = cur.next
+
+list = headval()
+list.val = linked(1)
+e1 = linked(2)
+e2 = linked(3)
+e3 = linked(4)
+e4 = linked(5)
+list.val.next = e1
+e1.next=e2
+e2.next=e3
+e3.next=e4
+list.reverse_recursion()
+list.traverse()
