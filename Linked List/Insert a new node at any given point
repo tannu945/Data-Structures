@@ -1,0 +1,40 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headvalue:
+    def __init__(self):
+        self.val = None
+
+    def insert_at_given_pos(self, pos, val):
+        temp = linked(val)
+        if pos == 1:
+            temp.next = self.val
+            return
+        cur = self.val
+        i=1
+        while (cur is not None) and (i <= pos-2):
+            cur = cur.next
+            i+=1
+            if cur is None:
+                return self.val
+        temp.next = cur.next
+        cur.next = temp
+
+    def traverse(self):
+        i = self.val
+        while i is not None:
+            print(i.data)
+            i=i.next
+list1 = headvalue()
+list1.val = linked("Mon")
+e2 = linked("Tue")
+e3 = linked("Wed")
+e4 = linked("Fri")
+e5 = linked("Sat")
+list1.val.next = e2
+e2.next = e3
+e3.next = e4
+e4.next = e5
+list1.insert_at_given_pos(4, "Thu")
+list1.traverse()
