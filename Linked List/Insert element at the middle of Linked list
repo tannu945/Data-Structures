@@ -1,0 +1,42 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headvalue:
+    def __init__(self):
+        self.val = None
+
+    def sort_insert(self, val):
+        temp = linked(val)
+        cur = self.val
+        pos = 0
+        i = 1
+        while cur is not None:
+            pos += 1
+            cur = cur.next
+        cur = self.val
+        while (cur is not None) and (i < (pos/2)):
+            i += 1
+            cur = cur.next
+            if cur is None:
+                return self.val
+        temp.next = cur.next
+        cur.next = temp
+
+    def traverse(self):
+        i = self.val
+        while i is not None:
+            print(i.data)
+            i=i.next
+list1 = headvalue()
+list1.val = linked("Mon")
+e2 = linked("Tue")
+e3 = linked("Wed")
+e4 = linked("Thu")
+e5 = linked("Fri")
+list1.val.next = e2
+e2.next = e3
+e3.next = e4
+e4.next = e5
+list1.sort_insert("Sat")
+list1.traverse()
