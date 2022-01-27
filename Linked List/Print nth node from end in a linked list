@@ -1,0 +1,81 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headvalue:
+    def __init__(self):
+        self.val = None
+
+    def print_nth_element(self, val):
+        cur = self.val
+        curt = self.val
+        i = 1
+        pos = 0
+        while pos <= val:
+            pos += 1
+            curt = curt.next
+        if cur is None:
+                return self.val
+        while (cur is not None) and (i <= (pos-val)):
+            i += 1
+            cur = cur.next
+        return cur.data
+
+    def traverse(self):
+        i = self.val
+        while i is not None:
+            print(i.data)
+            i=i.next
+
+list1 = headvalue()
+list1.val = linked("Mon")
+e2 = linked("Tue")
+e3 = linked("Wed")
+e4 = linked("Thu")
+e5 = linked("Fri")
+list1.val.next = e2
+e2.next = e3
+e3.next = e4
+e4.next = e5
+print(list1.print_nth_element(2))
+
+
+																					OR
+
+
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headvalue:
+    def __init__(self):
+        self.val = None
+
+    def print_nth_element_from_end(self, val):
+        start = self.val
+        end = self.val
+        pos = 1
+        while pos <= val:
+            pos += 1
+            end = end.next
+        if self.val is None:
+                return
+
+        while (end is not None):
+            if end is None:
+                return
+            start = start.next
+            end = end.next
+        return start.data
+
+list1 = headvalue()
+list1.val = linked("Mon")
+e2 = linked("Tue")
+e3 = linked("Wed")
+e4 = linked("Thu")
+e5 = linked("Fri")
+list1.val.next = e2
+e2.next = e3
+e3.next = e4
+e4.next = e5
+print(list1.print_nth_element_from_end(2))
