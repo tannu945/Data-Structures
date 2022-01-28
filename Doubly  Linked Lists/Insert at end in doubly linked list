@@ -1,0 +1,36 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+class headval:
+    def __init__(self):
+        self.val = None
+
+    def insert_at_end(self, value):
+        temp = linked(value)
+        if self.val is None:
+            self.val = temp
+            return
+        cur = self.val
+        while cur.next!= None:
+            cur = cur.next
+        cur.next = temp
+        temp.prev = cur
+
+    def traverse(self):
+        if self.val == None:
+            return None
+        cur = self.val
+        while cur != None:
+            print(cur.data)
+            cur = cur.next
+
+list = headval()
+list.insert_at_end(1)
+list.insert_at_end(2)
+list.insert_at_end(3)
+list.insert_at_end(4)
+list.insert_at_end(5)
+list.traverse()
