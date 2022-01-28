@@ -7,11 +7,13 @@ class headval:
         self.val = None
 
     def traverse(self):
+        if self.val == None:
+            return
+        print(self.val.data)
         cur = self.val.next
         if cur == None:
             return
-        print(self.val.data)
-        while cur.next != self.val:
+        while cur != self.val:
             print(cur.data)
             cur = cur.next
 list = headval()
