@@ -5,7 +5,7 @@ class clinked:
 
 
 class headval:
-    def __int__(self):
+    def __init__(self):
         self.val = None
 
     def delete_at_begin(self):
