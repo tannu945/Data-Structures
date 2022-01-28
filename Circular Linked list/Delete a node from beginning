@@ -9,24 +9,25 @@ class headval:
         self.val = None
 
     def delete_at_begin(self):
-        cur = self.val
         if self.val is None:
             return
         if self.val.next == self.val:
             self.val = None
-            return
         else:
+            cur = self.val
             while cur.next != self.val:
                 cur = cur.next
-        cur.next = self.val.next
-        self.val = self.val.next
+            cur.next = self.val.next
+            self.val = self.val.next
 
 
     def traverse(self):
+        if self.val == None:
+            return
+        print(self.val.data)
         cur = self.val.next
         if cur == None:
             return
-        print(self.val.data)
         while cur != self.val:
             print(cur.data)
             cur = cur.next
