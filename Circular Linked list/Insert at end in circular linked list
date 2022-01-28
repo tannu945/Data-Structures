@@ -1,0 +1,40 @@
+class clinked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+class headval:
+    def __int__(self):
+        self.val = None
+
+    def insert_at_end(self, value):
+        object = clinked(value)
+        if self.val is None:
+            object.next = object
+        else:
+            cur = self.val
+            while cur.next != self.val:
+                cur = cur.next
+            cur.next = object
+            object.next = self.val
+
+
+    def traverse(self):
+        cur = self.val.next
+        if cur == None:
+            return
+        print(self.val.data)
+        while cur != self.val:
+            print(cur.data)
+            cur = cur.next
+
+list = headval()
+list.val = clinked(1)
+e1 = clinked(2)
+e2 = clinked(3)
+e3 = clinked(4)
+list.val.next = e1
+e1.next= e2
+e2.next = e3
+e3.next = list.val
+list.insert_at_end(5)
+list.traverse()
