@@ -1,0 +1,39 @@
+class linked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+class headval:
+    def __init__(self):
+        self.val = None
+
+    def delete_begin(self):
+        if self.val is None:
+            return None
+        if self.val.next is None:
+            return None
+        self.val = self.val.next
+        self.val.prev = None
+
+    def traverse(self):
+        if self.val == None:
+            return None
+        cur = self.val
+        while cur != None:
+            print(cur.data)
+            cur = cur.next
+
+list = headval()
+list.val = linked(1)
+e1 = linked(2)
+e2 = linked(3)
+e3 = linked(4)
+list.val.next = e1
+e1.prev = list.val
+e1.next = e2
+e2.prev = e1
+e2.next = e3
+e3.prev = e2
+list.delete_begin()
+list.traverse()
