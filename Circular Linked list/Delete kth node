@@ -1,0 +1,60 @@
+class clinked:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+
+
+class headval:
+    def __init__(self):
+        self.val = None
+
+    def delete_at_begin(self):
+        if self.val is None:
+            return
+        if self.val.next == self.val:
+            self.val = None
+            return self.val
+        else:
+            cur = self.val
+            while cur.next != self.val:
+                cur = cur.next
+            cur.next = self.val.next
+            self.val = self.val.next
+
+    def delete_at_kth_pos(self, pos):
+        if self.val is None:
+            return None
+        if pos == 1:
+            return self.delete_at_begin()
+        else:
+            cur = self.val
+            i = 0
+            while cur.next != self.val and i < pos-2:
+                cur = cur.next
+                i+=1
+            cur.next = cur.next.next
+            return self.val
+
+
+    def traverse(self):
+        if self.val == None:
+            return self.val
+        print(self.val.data)
+        cur = self.val.next
+        if cur == None:
+            return
+        while cur != self.val:
+            print(cur.data)
+            cur = cur.next
+
+list = headval()
+list.val = clinked(1)
+e1 = clinked(2)
+e2 = clinked(3)
+e3 = clinked(4)
+list.val.next = e1
+e1.next = e2
+e2.next = e3
+e3.next = list.val
+list.delete_at_kth_pos(1)
+list.traverse()
