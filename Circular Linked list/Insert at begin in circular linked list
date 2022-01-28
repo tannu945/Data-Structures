@@ -20,10 +20,12 @@ class headval:
 
 
     def traverse(self):
+        if self.val == None:
+            return
+        print(self.val.data)
         cur = self.val.next
         if cur == None:
             return
-        print(self.val.data)
         while cur != self.val:
             print(cur.data)
             cur = cur.next
