@@ -1,0 +1,46 @@
+class cdlinked:
+    def __init__(self, data = None):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+class headval:
+    def __init__(self):
+        self.val = None
+
+    def insert(self, value):
+        temp = cdlinked(value)
+        if self.val is None:
+            temp.prev = temp.next
+            temp.next = temp.prev
+            return
+        else:
+            self.val.prev.next = temp
+            temp.next = self.val
+            self.val.prev = temp
+            self.val = temp
+
+    def traverse(self):
+        cur = self.val
+        if cur == None:
+            return
+        print(self.val.data)
+        while cur.next != self.val:
+            cur = cur.next
+            print(cur.data)
+
+list = headval()
+list.val = cdlinked(1)
+e1 = cdlinked(2)
+e2 = cdlinked(3)
+e3 = cdlinked(4)
+list.val.next = e1
+e1.prev = list.val
+e1.next = e2
+e2.prev = e1
+e2.next = e3
+e3.prev = e2
+e3.next = list.val
+list.val.prev = e3
+list.insert(6)
+list.traverse()
