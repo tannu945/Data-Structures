@@ -1,0 +1,69 @@
+import random
+import math
+global M
+M = int(input("Enter Plain Text: "))
+def mod_inverse(r1, r2):
+    q, r, t1, t2, t= 0, 0, 0, 1, 0
+    temp = r1
+    while r2!=0:
+        q = r1//r2
+        r = r1%r2
+        t = t1-(t2*q)
+        t1=t2
+        t2=t
+        r1=r2
+        r2=r
+    if t1<0:
+        temp = temp+t1
+        return temp
+    return t1
+
+def key_gen():
+    global n
+    global d
+    while True:
+        p = int(random.randint(1, 100))
+        q = int(random.randint(1, 100))
+        if math.gcd(p, q) == 1:
+            break
+    n=p*q
+    euler = (p-1)*(q-1)
+    print(euler)
+    global e
+    while True:
+        e = random.randint(1, euler)
+        if math.gcd(e, p-1) == 1 or math.gcd(e, q-1) == 1 or math.gcd(e, euler) == 1:
+            break
+    d = mod_inverse(euler, e)
+    print("Public key pair = ({}, {})".format(e, n))
+    print("Private key pair = ({}, {})".format(d, n))
+
+def encryption():
+    global c
+    c = 0
+    e1= int(input())
+    n1 = int(input())
+    if e1 == e and n1==n:
+        c = pow(M, e) % n
+        print("Cipher text = " + str(c))
+    else:
+        return print("You have entered wrong public key pair.")
+
+def decryption():
+    if c == 0:
+        print('First encrypt your text before decrypting.')
+        return
+    d1 = int(input())
+    n1 = int(input())
+    if d1 == d and n1 == n:
+        m = pow(c, d) % n
+        if m == M:
+            print("Orginal Text = "+str(m))
+        else:
+            print('wrong output')
+    else:
+        return print("You have entered wrong private key value pair.")
+
+key_gen()
+encryption()
+decryption()
