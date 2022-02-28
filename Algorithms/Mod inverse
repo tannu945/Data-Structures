@@ -1,0 +1,19 @@
+def mod_inverse(r1, r2):
+    q, r, t1, t2, t= 0, 0, 0, 1, 0
+    temp = r1
+    while r2!=0:
+        q = r1//r2
+        r = r1%r2
+        t = t1-(t2*q)
+        t1=t2
+        t2=t
+        r1=r2
+        r2=r
+    if t1<0:
+        temp = temp+t1
+        return temp
+    return t1
+
+r1 = int(input())
+r2 = int(input())
+print(mod_inverse(r1, r2))
