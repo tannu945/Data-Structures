@@ -1,0 +1,29 @@
+class Solution:
+    def maxSubArraySum(self,arr,N):
+        ##Your code here
+        sumlist=[]
+        sum1=0
+        for i in range(N):
+            sum1+=arr[i]
+            sumlist.append(sum1)
+            if sum1<0:
+                sum1=0
+        return max(sumlist)
+import math
+def main():
+        T=int(input())
+        while(T>0):
+            
+            n=int(input())
+            
+            arr=[int(x) for x in input().strip().split()]
+            
+            ob=Solution()
+            
+            print(ob.maxSubArraySum(arr,n))
+            
+            T-=1
+
+
+if __name__ == "__main__":
+    main()
